@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   button: {
-    color: "#841584"
-  }
+    color: '#841584',
+  },
 });
 
 interface IProps {}
@@ -17,18 +17,21 @@ interface IState {
   count: number;
 }
 export default class Counter extends Component<IProps, IState> {
-  public state = { count: 0 }
+  public state = { count: 0 };
 
   public render() {
-    const changeCount:(changeAmount: number) => void
-      = (changeAmount: number) => {
-      this.setState((oldState) => ({ count: oldState.count + changeAmount }));
-    }
+    const changeCount: (changeAmount: number) => void = (
+      changeAmount: number,
+    ) => {
+      this.setState(oldState => ({ count: oldState.count + changeAmount }));
+    };
 
-    const increaseCount:() => void =
-      () => { changeCount(1); };
-    const decreaseCount:() => void =
-      () => { changeCount(-1); };
+    const increaseCount: () => void = () => {
+      changeCount(1);
+    };
+    const decreaseCount: () => void = () => {
+      changeCount(-1);
+    };
 
     return (
       <View>
