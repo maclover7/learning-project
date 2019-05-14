@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {Button} from 'react-native';
-import Counter from '../Counter';
+import Counter from '../src/Counter';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
