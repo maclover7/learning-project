@@ -1,38 +1,45 @@
 import React, {Component} from 'react';
-import {Button, Text, View} from 'react-native';
-import styles from './styles';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
-interface Props {}
-interface State {
+const styles = StyleSheet.create({
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  button: {
+    color: "#841584"
+  }
+});
+
+interface IProps {}
+interface IState {
   count: number;
 }
+export default class Counter extends Component<IProps, IState> {
+  private state = { count: 0 }
 
-export default class Counter extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { count: 0 };
-  }
+  public render() {
+    changeCount = (changeAmount: number) => {
+      this.setState((oldState) => ({ count: oldState.count + changeAmount }));
+    }
 
-  changeCount(changeAmount: number) {
-    this.setState({
-      count: this.state.count + changeAmount
-    });
-  }
+    increaseCount = () => { changeCount(1); };
+    decreaseCount = () => { changeCount(-1); };
 
-  render() {
     return (
       <View>
         <Text style={styles.welcome}>Count: {this.state.count}</Text>
         <Button
-          onPress={this.changeCount.bind(this, 1)}
+          onPress={increaseCount}
           title="Increase Count"
-          color="#841584"
+          color={styles.button.color}
           accessibilityLabel="Increase Count"
         />
         <Button
-          onPress={this.changeCount.bind(this, -1)}
+          onPress={decreaseCount}
           title="Decrease Count"
-          color="#841584"
+          color={styles.button.color}
           accessibilityLabel="Decrease Count"
         />
       </View>

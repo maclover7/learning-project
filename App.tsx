@@ -9,14 +9,22 @@
  */
 
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Counter from './Counter';
-import styles from './styles';
 
-interface Props {}
-interface State {}
-export default class App extends Component<Props, State> {
-  render() {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  }
+});
+
+interface IProps {}
+interface IState {}
+export default class App extends Component<IProps, IState> {
+  public render() {
     return (
       <View style={styles.container}>
         <Counter />
