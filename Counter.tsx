@@ -17,15 +17,18 @@ interface IState {
   count: number;
 }
 export default class Counter extends Component<IProps, IState> {
-  private state = { count: 0 }
+  public state = { count: 0 }
 
   public render() {
-    changeCount = (changeAmount: number) => {
+    const changeCount:(changeAmount: number) => void
+      = (changeAmount: number) => {
       this.setState((oldState) => ({ count: oldState.count + changeAmount }));
     }
 
-    increaseCount = () => { changeCount(1); };
-    decreaseCount = () => { changeCount(-1); };
+    const increaseCount:() => void =
+      () => { changeCount(1); };
+    const decreaseCount:() => void =
+      () => { changeCount(-1); };
 
     return (
       <View>
