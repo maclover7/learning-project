@@ -9,23 +9,21 @@ import Counter from '../src/Counter';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-const ensureCompliantCounterSnapshot = (componentButtonText: string) => {
+it('renders correctly', () => {
   const component = renderer.create(<Counter />);
   expect(component.toJSON()).toMatchSnapshot();
-
-  component.root.findByProps({ title: componentButtonText }).props.onPress();
-
-  expect(component.toJSON()).toMatchSnapshot();
-};
-
-it('renders correctly', () => {
-  renderer.create(<Counter />);
 });
 
 it('decreases count', () => {
-  ensureCompliantCounterSnapshot('Decrease Count');
+  const component = renderer.create(<Counter />);
+  (component.getInstance() as any).decreaseCount();
+
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('increases count', () => {
-  ensureCompliantCounterSnapshot('Increase Count');
+  const component = renderer.create(<Counter />);
+  (component.getInstance() as any).increaseCount();
+
+  expect(component.toJSON()).toMatchSnapshot();
 });

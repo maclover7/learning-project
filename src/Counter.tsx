@@ -19,34 +19,31 @@ interface IState {
 export default class Counter extends Component<IProps, IState> {
   public state = { count: 0 };
 
+  private increaseCount: () => void = () => {
+    const changeAmount = 1;
+    this.setState(oldState => ({ count: oldState.count + changeAmount }));
+  };
+
+  private decreaseCount: () => void = () => {
+    const changeAmount = -1;
+    this.setState(oldState => ({ count: oldState.count + changeAmount }));
+  };
+
   public render() {
-    const changeCount: (changeAmount: number) => void = (
-      changeAmount: number,
-    ) => {
-      this.setState(oldState => ({ count: oldState.count + changeAmount }));
-    };
-
-    const increaseCount: () => void = () => {
-      changeCount(1);
-    };
-    const decreaseCount: () => void = () => {
-      changeCount(-1);
-    };
-
     return (
       <View>
         <Text style={styles.welcome}>Count: {this.state.count}</Text>
         <Button
-          onPress={increaseCount}
-          title="Increase Count"
+          onPress={this.increaseCount}
+          title={'Increase Count'}
           color={styles.button.color}
-          accessibilityLabel="Increase Count"
+          accessibilityLabel={'Increase Count'}
         />
         <Button
-          onPress={decreaseCount}
-          title="Decrease Count"
+          onPress={this.decreaseCount}
+          title={'Decrease Count'}
           color={styles.button.color}
-          accessibilityLabel="Decrease Count"
+          accessibilityLabel={'Decrease Count'}
         />
       </View>
     );

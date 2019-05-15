@@ -12,111 +12,6 @@ exports[`decreases count 1`] = `
     }
   >
     Count: 
-    0
-  </Text>
-  <View
-    accessibilityLabel="Increase Count"
-    accessibilityRole="button"
-    accessibilityStates={Array []}
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-            Object {
-              "color": "#841584",
-            },
-          ]
-        }
-      >
-        Increase Count
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityLabel="Decrease Count"
-    accessibilityRole="button"
-    accessibilityStates={Array []}
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-            Object {
-              "color": "#841584",
-            },
-          ]
-        }
-      >
-        Decrease Count
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`decreases count 2`] = `
-<View>
-  <Text
-    style={
-      Object {
-        "fontSize": 20,
-        "margin": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    Count: 
     -1
   </Text>
   <View
@@ -222,7 +117,7 @@ exports[`increases count 1`] = `
     }
   >
     Count: 
-    0
+    1
   </Text>
   <View
     accessibilityLabel="Increase Count"
@@ -315,7 +210,7 @@ exports[`increases count 1`] = `
 </View>
 `;
 
-exports[`increases count 2`] = `
+exports[`renders correctly 1`] = `
 <View>
   <Text
     style={
@@ -327,7 +222,7 @@ exports[`increases count 2`] = `
     }
   >
     Count: 
-    1
+    0
   </Text>
   <View
     accessibilityLabel="Increase Count"
