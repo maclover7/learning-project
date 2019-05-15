@@ -12,35 +12,26 @@ const styles = StyleSheet.create({
   },
 });
 
-interface IProps {}
-interface IState {
-  count: number;
+interface IProps {
+  count: number,
+  decreaseCount: () => void,
+  increaseCount: () => void
 }
+interface IState {}
+
 export default class Counter extends Component<IProps, IState> {
-  public state = { count: 0 };
-
-  private increaseCount: () => void = () => {
-    const changeAmount = 1;
-    this.setState(oldState => ({ count: oldState.count + changeAmount }));
-  };
-
-  private decreaseCount: () => void = () => {
-    const changeAmount = -1;
-    this.setState(oldState => ({ count: oldState.count + changeAmount }));
-  };
-
   public render() {
     return (
       <View>
-        <Text style={styles.welcome}>Count: {this.state.count}</Text>
+        <Text style={styles.welcome}>Count: {this.props.count}</Text>
         <Button
-          onPress={this.increaseCount}
+          onPress={this.props.increaseCount}
           title={'Increase Count'}
           color={styles.button.color}
           accessibilityLabel={'Increase Count'}
         />
         <Button
-          onPress={this.decreaseCount}
+          onPress={this.props.decreaseCount}
           title={'Decrease Count'}
           color={styles.button.color}
           accessibilityLabel={'Decrease Count'}
