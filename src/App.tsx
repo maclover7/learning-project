@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import Counter from './Counter';
@@ -18,25 +18,20 @@ interface IProps {
   increaseCount: (counterId: number) => void,
   counters: ICounter[]
 }
-interface IState {}
 
-class App extends Component<IProps, IState> {
-  public render() {
-    return (
-      <View style={styles.container}>
-      {this.renderCounters()}
-      </View>
-    );
-  }
-
-  private renderCounters() {
-    return this.props.counters.map((counter: ICounter, counterId: number) => {
+const App = (props: IProps) => {
+  const renderCounters = () => {
+    return props.counters.map((counter: ICounter, counterId: number) => {
       return <Counter key={counterId}
                       count={counter.count}
-                      decreaseCount={() => this.props.decreaseCount(counterId) }
-                      increaseCount={() => this.props.increaseCount(counterId) } />;
+                      decreaseCount={() => props.decreaseCount(counterId) }
+                      increaseCount={() => props.increaseCount(counterId) } />;
     });
   }
+
+  return (
+    <View style={styles.container}>{renderCounters()}</View>
+  );
 }
 
 const mapDispatchToProps = (dispatch: any) => {
