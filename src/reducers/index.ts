@@ -1,18 +1,14 @@
 import ICounter from '../types';
+import { ICounterAction, Actions } from '../actions';
 
 const initialState = [
   { count: 0 },
   { count: 5 }
 ];
 
-interface ICounterReducerAction {
-  type: string,
-  counterId: number
-}
-
-export default function counterReducer(state = initialState, action: ICounterReducerAction) {
+export default function counterReducer(state = initialState, action: ICounterAction) {
   switch (action.type) {
-    case 'INCREASE_COUNT':
+    case Actions.IncreaseCount:
       return state.map((counter: ICounter, index: number) => {
         if (action.counterId === index) {
           return {
@@ -22,7 +18,7 @@ export default function counterReducer(state = initialState, action: ICounterRed
 
         return counter;
       });
-    case 'DECREASE_COUNT':
+    case Actions.DecreaseCount:
       return state.map((counter: ICounter, index: number) => {
         if (action.counterId === index) {
           return {

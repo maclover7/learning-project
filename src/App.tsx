@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import Counter from './Counter';
 import ICounter from './types';
+import { decreaseCount, increaseCount } from './actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,8 +37,8 @@ const App = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    decreaseCount: (counterId: number) => dispatch({ type: 'DECREASE_COUNT', counterId }),
-    increaseCount: (counterId: number) => dispatch({ type: 'INCREASE_COUNT', counterId })
+    decreaseCount: (counterId: number) => dispatch(decreaseCount(counterId)),
+    increaseCount: (counterId: number) => dispatch(increaseCount(counterId))
   };
 };
 
