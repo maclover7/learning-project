@@ -6,7 +6,12 @@ import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
   const component = renderer.create(
-    <Counter count={0} decreaseCount={() => {}} increaseCount={() => {}} />,
+    <Counter
+      count={0}
+      decreaseCount={() => {}}
+      increaseCount={() => {}}
+      removeCounter={() => {}}
+    />,
   );
   expect(component.toJSON()).toMatchSnapshot();
 });

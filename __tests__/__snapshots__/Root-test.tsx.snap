@@ -4,216 +4,418 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "backgroundColor": "#F5FCFF",
       "flex": 1,
-      "justifyContent": "center",
+      "flexDirection": "column",
+      "marginTop": 60,
     }
   }
 >
-  <View>
-    <Text
-      style={
-        Object {
-          "fontSize": 20,
-          "margin": 10,
-          "textAlign": "center",
-        }
+  <View
+    accessibilityLabel="Add Counter"
+    accessibilityRole="button"
+    accessibilityStates={Array []}
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
       }
-    >
-      Count: 
-      0
-    </Text>
+    }
+  >
     <View
-      accessibilityLabel="Increase Count"
-      accessibilityRole="button"
-      accessibilityStates={Array []}
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+        ]
       }
     >
-      <View
+      <Text
         style={
           Array [
-            Object {},
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#841584",
+            },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 18,
-                "padding": 8,
-                "textAlign": "center",
-              },
-              Object {
-                "color": "#841584",
-              },
-            ]
-          }
-        >
-          Increase Count
-        </Text>
-      </View>
-    </View>
-    <View
-      accessibilityLabel="Decrease Count"
-      accessibilityRole="button"
-      accessibilityStates={Array []}
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 18,
-                "padding": 8,
-                "textAlign": "center",
-              },
-              Object {
-                "color": "#841584",
-              },
-            ]
-          }
-        >
-          Decrease Count
-        </Text>
-      </View>
+        Add Counter
+      </Text>
     </View>
   </View>
-  <View>
-    <Text
-      style={
-        Object {
-          "fontSize": 20,
-          "margin": 10,
-          "textAlign": "center",
-        }
+  <View
+    style={
+      Object {
+        "borderBottomColor": "black",
+        "borderBottomWidth": 1,
       }
-    >
-      Count: 
-      5
-    </Text>
-    <View
-      accessibilityLabel="Increase Count"
-      accessibilityRole="button"
-      accessibilityStates={Array []}
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
+    }
+  />
+  <RCTScrollView
+    data={
+      Array [
         Object {
-          "opacity": 1,
-        }
-      }
-    >
+          "count": 0,
+        },
+        Object {
+          "count": 5,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
       <View
-        style={
-          Array [
-            Object {},
-          ]
-        }
+        onLayout={[Function]}
+        style={null}
       >
-        <Text
+        <View
           style={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 18,
-                "padding": 8,
-                "textAlign": "center",
-              },
-              Object {
-                "color": "#841584",
-              },
-            ]
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-around",
+            }
           }
         >
-          Increase Count
-        </Text>
-      </View>
-    </View>
-    <View
-      accessibilityLabel="Decrease Count"
-      accessibilityRole="button"
-      accessibilityStates={Array []}
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
+          <Text
+            style={
               Object {
-                "color": "#007AFF",
-                "fontSize": 18,
-                "padding": 8,
+                "fontSize": 20,
+                "margin": 10,
                 "textAlign": "center",
-              },
+              }
+            }
+          >
+            Count: 
+            0
+          </Text>
+          <View
+            accessibilityLabel="Increase"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
               Object {
-                "color": "#841584",
-              },
-            ]
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Increase
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Decrease"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Decrease
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Remove"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Remove
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-around",
+            }
           }
         >
-          Decrease Count
-        </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 20,
+                "margin": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            Count: 
+            5
+          </Text>
+          <View
+            accessibilityLabel="Increase"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Increase
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Decrease"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Decrease
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Remove"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Remove
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;

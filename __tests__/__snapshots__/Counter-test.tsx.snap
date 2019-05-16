@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "space-around",
+    }
+  }
+>
   <Text
     style={
       Object {
@@ -15,7 +23,7 @@ exports[`renders correctly 1`] = `
     0
   </Text>
   <View
-    accessibilityLabel="Increase Count"
+    accessibilityLabel="Increase"
     accessibilityRole="button"
     accessibilityStates={Array []}
     accessible={true}
@@ -54,12 +62,12 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Increase Count
+        Increase
       </Text>
     </View>
   </View>
   <View
-    accessibilityLabel="Decrease Count"
+    accessibilityLabel="Decrease"
     accessibilityRole="button"
     accessibilityStates={Array []}
     accessible={true}
@@ -98,7 +106,51 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Decrease Count
+        Decrease
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Remove"
+    accessibilityRole="button"
+    accessibilityStates={Array []}
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#841584",
+            },
+          ]
+        }
+      >
+        Remove
       </Text>
     </View>
   </View>
