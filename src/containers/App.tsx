@@ -12,14 +12,17 @@ import {
 } from '../actions';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
   button: {
     color: '#841584',
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    marginTop: 60,
+  },
+  separator: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
   },
 });
 
@@ -56,17 +59,17 @@ const App = (props: IProps) => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        contentContainerStyle={styles.container}
-        data={props.counters}
-        renderItem={renderCounter}
-        keyExtractor={getKey}
-      />
       <Button
         onPress={props.addCounter}
         title={'Add Counter'}
         color={styles.button.color}
         accessibilityLabel={'Add Counter'}
+      />
+      <View style={styles.separator} />
+      <FlatList
+        data={props.counters}
+        renderItem={renderCounter}
+        keyExtractor={getKey}
       />
     </View>
   );
