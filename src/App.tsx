@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Counter from './Counter';
 import ICounter from './types';
 import { decreaseCount, increaseCount } from './actions';
@@ -36,10 +37,10 @@ const App = (props: IProps) => {
 }
 
 const mapDispatchToProps = (dispatch: any) => {
-  return {
-    decreaseCount: (counterId: number) => dispatch(decreaseCount(counterId)),
-    increaseCount: (counterId: number) => dispatch(increaseCount(counterId))
-  };
+  return bindActionCreators(
+    { decreaseCount, increaseCount },
+    dispatch
+  );
 };
 
 const mapStateToProps = (state: ICounter[]) => {
