@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
 });
 
 interface IProps {
-  count: number,
-  decreaseCount: () => void,
-  increaseCount: () => void
+  count: number;
+  decreaseCount: () => void;
+  increaseCount: () => void;
 }
 
 const Counter = (props: IProps) => {
@@ -36,6 +36,6 @@ const Counter = (props: IProps) => {
       />
     </View>
   );
-}
+};
 
 export default Counter;

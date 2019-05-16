@@ -16,35 +16,37 @@ const styles = StyleSheet.create({
 });
 
 interface IProps {
-  decreaseCount: (counterId: number) => void,
-  increaseCount: (counterId: number) => void,
-  counters: ICounter[]
+  decreaseCount: (counterId: number) => void;
+  increaseCount: (counterId: number) => void;
+  counters: ICounter[];
 }
 
 const App = (props: IProps) => {
   const renderCounters = () => {
     return props.counters.map((counter: ICounter, counterId: number) => {
-      return <Counter key={counterId}
-                      count={counter.count}
-                      decreaseCount={() => props.decreaseCount(counterId) }
-                      increaseCount={() => props.increaseCount(counterId) } />;
+      return (
+        <Counter
+          key={counterId}
+          count={counter.count}
+          decreaseCount={() => props.decreaseCount(counterId)}
+          increaseCount={() => props.increaseCount(counterId)}
+        />
+      );
     });
-  }
+  };
 
-  return (
-    <View style={styles.container}>{renderCounters()}</View>
-  );
-}
+  return <View style={styles.container}>{renderCounters()}</View>;
+};
 
 const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators(
-    { decreaseCount, increaseCount },
-    dispatch
-  );
+  return bindActionCreators({ decreaseCount, increaseCount }, dispatch);
 };
 
 const mapStateToProps = (state: ICounter[]) => {
   return { counters: state };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
