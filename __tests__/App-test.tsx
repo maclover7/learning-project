@@ -2,7 +2,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import counterReducer from '../src/reducers';
-import App from '../src/App';
+import App from '../src/containers/App';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';

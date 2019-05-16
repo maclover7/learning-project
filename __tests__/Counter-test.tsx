@@ -1,5 +1,5 @@
 import React from 'react';
-import Counter from '../src/Counter';
+import Counter from '../src/components/Counter';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';

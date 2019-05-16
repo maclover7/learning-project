@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Counter from './Counter';
-import ICounter from './types';
-import { decreaseCount, increaseCount } from './actions';
+import Counter from '../components/Counter';
+import ICounter from '../types';
+import { decreaseCount, increaseCount } from '../actions';
 
 const styles = StyleSheet.create({
   container: {
