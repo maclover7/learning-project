@@ -6,7 +6,7 @@ it('decreases count', () => {
 
   expect(generatedAction).toEqual({
     type: Actions.DecreaseCount,
-    counterId: 0
+    counterId: 0,
   });
 });
 
@@ -15,6 +15,6 @@ it('increases count', () => {
 
   expect(generatedAction).toEqual({
     type: Actions.IncreaseCount,
-    counterId: 0
+    counterId: 0,
   });
 });

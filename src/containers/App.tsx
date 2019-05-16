@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Counter from '../components/Counter';
@@ -22,20 +22,35 @@ interface IProps {
 }
 
 const App = (props: IProps) => {
-  const renderCounters = () => {
-    return props.counters.map((counter: ICounter, counterId: number) => {
-      return (
-        <Counter
-          key={counterId}
-          count={counter.count}
-          decreaseCount={() => props.decreaseCount(counterId)}
-          increaseCount={() => props.increaseCount(counterId)}
-        />
-      );
-    });
+  const getKey = (item: ICounter, index: number): string => {
+    return String(index);
   };
 
-  return <View style={styles.container}>{renderCounters()}</View>;
+  const renderCounter = ({
+    item,
+    index,
+  }: {
+    item: ICounter;
+    index: number;
+  }) => {
+    return (
+      <Counter
+        key={index}
+        count={item.count}
+        decreaseCount={() => props.decreaseCount(index)}
+        increaseCount={() => props.increaseCount(index)}
+      />
+    );
+  };
+
+  return (
+    <FlatList
+      contentContainerStyle={styles.container}
+      data={props.counters}
+      renderItem={renderCounter}
+      keyExtractor={getKey}
+    />
+  );
 };
 
 const mapDispatchToProps = (dispatch: any) => {
