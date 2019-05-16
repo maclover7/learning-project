@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -17,26 +17,25 @@ interface IProps {
   decreaseCount: () => void,
   increaseCount: () => void
 }
-interface IState {}
 
-export default class Counter extends Component<IProps, IState> {
-  public render() {
-    return (
-      <View>
-        <Text style={styles.welcome}>Count: {this.props.count}</Text>
-        <Button
-          onPress={this.props.increaseCount}
-          title={'Increase Count'}
-          color={styles.button.color}
-          accessibilityLabel={'Increase Count'}
-        />
-        <Button
-          onPress={this.props.decreaseCount}
-          title={'Decrease Count'}
-          color={styles.button.color}
-          accessibilityLabel={'Decrease Count'}
-        />
-      </View>
-    );
-  }
+const Counter = (props: IProps) => {
+  return (
+    <View>
+      <Text style={styles.welcome}>Count: {props.count}</Text>
+      <Button
+        onPress={props.increaseCount}
+        title={'Increase Count'}
+        color={styles.button.color}
+        accessibilityLabel={'Increase Count'}
+      />
+      <Button
+        onPress={props.decreaseCount}
+        title={'Decrease Count'}
+        color={styles.button.color}
+        accessibilityLabel={'Decrease Count'}
+      />
+    </View>
+  );
 }
+
+export default Counter;
