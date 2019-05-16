@@ -4,6 +4,7 @@ import {
   addCounter,
   decreaseCount,
   increaseCount,
+  removeCounter,
 } from '../src/actions';
 
 it('adds counter', () => {
@@ -11,6 +12,7 @@ it('adds counter', () => {
 
   expect(generatedAction).toEqual({
     type: Actions.AddCounter,
+    counterId: 0,
   });
 });
 
@@ -28,6 +30,15 @@ it('increases count', () => {
 
   expect(generatedAction).toEqual({
     type: Actions.IncreaseCount,
+    counterId: 0,
+  });
+});
+
+it('removes counter', () => {
+  const generatedAction = removeCounter(0);
+
+  expect(generatedAction).toEqual({
+    type: Actions.RemoveCounter,
     counterId: 0,
   });
 });

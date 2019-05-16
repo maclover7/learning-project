@@ -11,16 +11,6 @@ export default function counterReducer(
     case Actions.AddCounter:
       state.unshift({ count: 0 });
       return state.slice(0);
-    case Actions.IncreaseCount:
-      return state.map((counter: ICounter, index: number) => {
-        if (action.counterId === index) {
-          return {
-            count: counter.count + 1,
-          };
-        }
-
-        return counter;
-      });
     case Actions.DecreaseCount:
       return state.map((counter: ICounter, index: number) => {
         if (action.counterId === index) {
@@ -31,6 +21,19 @@ export default function counterReducer(
 
         return counter;
       });
+    case Actions.IncreaseCount:
+      return state.map((counter: ICounter, index: number) => {
+        if (action.counterId === index) {
+          return {
+            count: counter.count + 1,
+          };
+        }
+
+        return counter;
+      });
+    case Actions.RemoveCounter:
+      state.splice(action.counterId, 1);
+      return state.slice(0);
     default:
       return state;
   }

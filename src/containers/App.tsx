@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Counter from '../components/Counter';
 import ICounter from '../types';
-import { addCounter, decreaseCount, increaseCount } from '../actions';
+import {
+  addCounter,
+  decreaseCount,
+  increaseCount,
+  removeCounter,
+} from '../actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +27,7 @@ interface IProps {
   addCounter: () => void;
   decreaseCount: (counterId: number) => void;
   increaseCount: (counterId: number) => void;
+  removeCounter: (counterId: number) => void;
   counters: ICounter[];
 }
 
@@ -43,6 +49,7 @@ const App = (props: IProps) => {
         count={item.count}
         decreaseCount={() => props.decreaseCount(index)}
         increaseCount={() => props.increaseCount(index)}
+        removeCounter={() => props.removeCounter(index)}
       />
     );
   };
@@ -67,7 +74,7 @@ const App = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
-    { addCounter, decreaseCount, increaseCount },
+    { addCounter, decreaseCount, increaseCount, removeCounter },
     dispatch,
   );
 };

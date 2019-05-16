@@ -16,6 +16,7 @@ interface IProps {
   count: number;
   decreaseCount: () => void;
   increaseCount: () => void;
+  removeCounter: () => void;
 }
 
 const Counter = (props: IProps) => {
@@ -33,6 +34,12 @@ const Counter = (props: IProps) => {
         title={'Decrease Count'}
         color={styles.button.color}
         accessibilityLabel={'Decrease Count'}
+      />
+      <Button
+        onPress={props.removeCounter}
+        title={'Remove Counter'}
+        color={styles.button.color}
+        accessibilityLabel={'Remove Counter'}
       />
     </View>
   );
