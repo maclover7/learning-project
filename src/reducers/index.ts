@@ -9,8 +9,7 @@ export default function counterReducer(
 ) {
   switch (action.type) {
     case Actions.AddCounter:
-      state.unshift({ count: 0 });
-      return state.slice(0);
+      return [{ count: 0 }, ...state];
     case Actions.DecreaseCount:
       return state.map((counter: ICounter, index: number) => {
         if (action.counterId === index) {
@@ -32,8 +31,9 @@ export default function counterReducer(
         return counter;
       });
     case Actions.RemoveCounter:
-      state.splice(action.counterId, 1);
-      return state.slice(0);
+      return state.filter((counter: ICounter, index: number) => {
+        return index !== action.counterId;
+      });
     default:
       return state;
   }

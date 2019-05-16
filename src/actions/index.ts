@@ -8,7 +8,6 @@ export enum Actions {
 export const addCounter = () => {
   return {
     type: Actions.AddCounter,
-    counterId: 0,
   };
 };
 
@@ -35,5 +34,5 @@ export const removeCounter = (counterId: number) => {
 
 export interface ICounterAction {
   type: Actions;
-  counterId: number;
+  counterId?: number;
 }

@@ -12,7 +12,6 @@ it('adds counter', () => {
 
   expect(generatedAction).toEqual({
     type: Actions.AddCounter,
-    counterId: 0,
   });
 });
 
