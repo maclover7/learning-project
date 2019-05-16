@@ -1,10 +1,10 @@
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { Button, FlatList, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Counter from '../components/Counter';
 import ICounter from '../types';
-import { decreaseCount, increaseCount } from '../actions';
+import { addCounter, decreaseCount, increaseCount } from '../actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,9 +13,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  button: {
+    color: '#841584',
+  },
 });
 
 interface IProps {
+  addCounter: () => void;
   decreaseCount: (counterId: number) => void;
   increaseCount: (counterId: number) => void;
   counters: ICounter[];
@@ -44,17 +48,28 @@ const App = (props: IProps) => {
   };
 
   return (
-    <FlatList
-      contentContainerStyle={styles.container}
-      data={props.counters}
-      renderItem={renderCounter}
-      keyExtractor={getKey}
-    />
+    <View style={styles.container}>
+      <FlatList
+        contentContainerStyle={styles.container}
+        data={props.counters}
+        renderItem={renderCounter}
+        keyExtractor={getKey}
+      />
+      <Button
+        onPress={props.addCounter}
+        title={'Add Counter'}
+        color={styles.button.color}
+        accessibilityLabel={'Add Counter'}
+      />
+    </View>
   );
 };
 
 const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({ decreaseCount, increaseCount }, dispatch);
+  return bindActionCreators(
+    { addCounter, decreaseCount, increaseCount },
+    dispatch,
+  );
 };
 
 const mapStateToProps = (state: ICounter[]) => {

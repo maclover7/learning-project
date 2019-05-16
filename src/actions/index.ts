@@ -1,7 +1,14 @@
 export enum Actions {
+  AddCounter = 'ADD_COUNTER',
   DecreaseCount = 'DECREASE_COUNT',
   IncreaseCount = 'INCREASE_COUNT',
 }
+
+export const addCounter = () => {
+  return {
+    type: Actions.AddCounter,
+  };
+};
 
 export const decreaseCount = (counterId: number) => {
   return {
@@ -19,5 +26,5 @@ export const increaseCount = (counterId: number) => {
 
 export interface ICounterAction {
   type: Actions;
-  counterId: number;
+  counterId?: number;
 }

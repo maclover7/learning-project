@@ -1,5 +1,18 @@
 import counterReducer from '../src/reducers';
-import { Actions, decreaseCount, increaseCount } from '../src/actions';
+import {
+  Actions,
+  addCounter,
+  decreaseCount,
+  increaseCount,
+} from '../src/actions';
+
+it('adds counter', () => {
+  const generatedAction = addCounter();
+
+  expect(generatedAction).toEqual({
+    type: Actions.AddCounter,
+  });
+});
 
 it('decreases count', () => {
   const generatedAction = decreaseCount(0);

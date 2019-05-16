@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RCTScrollView
-  contentContainerStyle={
+<View
+  style={
     Object {
       "alignItems": "center",
       "backgroundColor": "#F5FCFF",
@@ -10,254 +10,309 @@ exports[`renders correctly 1`] = `
       "justifyContent": "center",
     }
   }
-  data={
-    Array [
-      Object {
-        "count": 0,
-      },
-      Object {
-        "count": 5,
-      },
-    ]
-  }
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  removeClippedSubviews={false}
-  renderItem={[Function]}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
 >
-  <View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View>
-        <Text
-          style={
-            Object {
-              "fontSize": 20,
-              "margin": 10,
-              "textAlign": "center",
-            }
-          }
-        >
-          Count: 
-          0
-        </Text>
-        <View
-          accessibilityLabel="Increase Count"
-          accessibilityRole="button"
-          accessibilityStates={Array []}
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#F5FCFF",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+    data={
+      Array [
+        Object {
+          "count": 0,
+        },
+        Object {
+          "count": 5,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <Text
             style={
-              Array [
-                Object {},
-              ]
+              Object {
+                "fontSize": 20,
+                "margin": 10,
+                "textAlign": "center",
+              }
             }
           >
-            <Text
+            Count: 
+            0
+          </Text>
+          <View
+            accessibilityLabel="Increase Count"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
               style={
                 Array [
-                  Object {
-                    "color": "#007AFF",
-                    "fontSize": 18,
-                    "padding": 8,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#841584",
-                  },
+                  Object {},
                 ]
               }
             >
-              Increase Count
-            </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Increase Count
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Decrease Count"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Decrease Count
+              </Text>
+            </View>
           </View>
         </View>
-        <View
-          accessibilityLabel="Decrease Count"
-          accessibilityRole="button"
-          accessibilityStates={Array []}
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <Text
             style={
-              Array [
-                Object {},
-              ]
+              Object {
+                "fontSize": 20,
+                "margin": 10,
+                "textAlign": "center",
+              }
             }
           >
-            <Text
+            Count: 
+            5
+          </Text>
+          <View
+            accessibilityLabel="Increase Count"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
               style={
                 Array [
-                  Object {
-                    "color": "#007AFF",
-                    "fontSize": 18,
-                    "padding": 8,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#841584",
-                  },
+                  Object {},
                 ]
               }
             >
-              Decrease Count
-            </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Increase Count
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Decrease Count"
+            accessibilityRole="button"
+            accessibilityStates={Array []}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 18,
+                      "padding": 8,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#841584",
+                    },
+                  ]
+                }
+              >
+                Decrease Count
+              </Text>
+            </View>
           </View>
         </View>
       </View>
     </View>
+  </RCTScrollView>
+  <View
+    accessibilityLabel="Add Counter"
+    accessibilityRole="button"
+    accessibilityStates={Array []}
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
     <View
-      onLayout={[Function]}
-      style={null}
+      style={
+        Array [
+          Object {},
+        ]
+      }
     >
-      <View>
-        <Text
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "fontSize": 20,
-              "margin": 10,
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
               "textAlign": "center",
-            }
-          }
-        >
-          Count: 
-          5
-        </Text>
-        <View
-          accessibilityLabel="Increase Count"
-          accessibilityRole="button"
-          accessibilityStates={Array []}
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
+            },
             Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {},
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#007AFF",
-                    "fontSize": 18,
-                    "padding": 8,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#841584",
-                  },
-                ]
-              }
-            >
-              Increase Count
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityLabel="Decrease Count"
-          accessibilityRole="button"
-          accessibilityStates={Array []}
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {},
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#007AFF",
-                    "fontSize": 18,
-                    "padding": 8,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#841584",
-                  },
-                ]
-              }
-            >
-              Decrease Count
-            </Text>
-          </View>
-        </View>
-      </View>
+              "color": "#841584",
+            },
+          ]
+        }
+      >
+        Add Counter
+      </Text>
     </View>
   </View>
-</RCTScrollView>
+</View>
 `;
