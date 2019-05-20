@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
-import counterReducer from './reducers';
+import rootReducer from './reducers';
+import { counterSaga } from './sagas';
 import App from './containers/App';
 
-const store = createStore(counterReducer);
+const sagaMiddleware = createSagaMiddleware();
+//const rootReducer = combineReducers({ countersReducer, counterReducer });
+const store = createStore(
+  rootReducer,
+  applyMiddleware(sagaMiddleware)
+);
+sagaMiddleware.run(counterSaga);
 
 interface IProps {}
 interface IState {}

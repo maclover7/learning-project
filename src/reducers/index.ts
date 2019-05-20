@@ -1,15 +1,13 @@
+import { combineReducers } from 'redux';
 import { ICounter, LoadingStatus, IState } from '../types';
 import { ICounterAction, Actions } from '../actions';
 
 const initialState: IState = {
-  counters: [{ count: 0 }, { count: 5 }],
-  loadingStatus: LoadingStatus.Loading,
+  counters: [],
+  loadingStatus: LoadingStatus.Unknown,
 };
 
-export default function counterReducer(
-  state = initialState,
-  action: ICounterAction,
-) {
+const counterReducer = (state = initialState, action: ICounterAction) => {
   let counters;
 
   switch (action.type) {
@@ -46,7 +44,18 @@ export default function counterReducer(
       });
 
       return Object.assign({}, state, { counters });
+    case Actions.GetCounters:
+      return Object.assign({}, state, { loadingStatus: LoadingStatus.Loading });
+    case Actions.GetCountersSuccess:
+      return Object.assign({}, state, {
+        loadingStatus: LoadingStatus.Success,
+        counters: action.counters,
+      });
+    case Actions.GetCountersFailure:
+      return Object.assign({}, state, { loadingStatus: LoadingStatus.Failure });
     default:
       return state;
   }
-}
+};
+
+export default counterReducer;

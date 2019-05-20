@@ -9,6 +9,7 @@ import {
   decreaseCount,
   increaseCount,
   removeCounter,
+  getCounters,
 } from '../actions';
 
 const styles = StyleSheet.create({
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
 interface IProps {
   addCounter: () => void;
   decreaseCount: (counterId: number) => void;
+  getCounters: () => void;
   increaseCount: (counterId: number) => void;
   removeCounter: (counterId: number) => void;
   counters: ICounter[];
@@ -58,13 +60,7 @@ const App = (props: IProps) => {
     );
   };
 
-  if (props.loadingStatus === LoadingStatus.Loading) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  } else if (props.loadingStatus === LoadingStatus.Success) {
+  if (props.loadingStatus === LoadingStatus.Success) {
     return (
       <View style={styles.container}>
         <Button
@@ -82,9 +78,20 @@ const App = (props: IProps) => {
       </View>
     );
   } else {
+    let text;
+
+    if (props.loadingStatus === LoadingStatus.Failure) {
+      text = 'Unable to fetch counters';
+    } else if (props.loadingStatus === LoadingStatus.Loading) {
+      text = 'Loading...';
+    } else if (props.loadingStatus === LoadingStatus.Unknown) {
+      text = 'Loading...';
+      props.getCounters();
+    }
+
     return (
       <View style={styles.container}>
-        <Text>{props.loadingStatus}</Text>
+        <Text>{text}</Text>
       </View>
     );
   }
@@ -92,7 +99,7 @@ const App = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
-    { addCounter, decreaseCount, increaseCount, removeCounter },
+    { addCounter, decreaseCount, getCounters, increaseCount, removeCounter },
     dispatch,
   );
 };

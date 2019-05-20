@@ -3,6 +3,7 @@ export interface ICounter {
 }
 
 export enum LoadingStatus {
+  Unknown = 'Unknown',
   Loading = 'Loading',
   Success = 'Success',
   Failure = 'Failure'
