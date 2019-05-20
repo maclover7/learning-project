@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, FlatList, StyleSheet, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Counter from '../components/Counter';
-import { ICounter, IState } from '../types';
+import { ICounter, LoadingStatus, IState } from '../types';
 import {
   addCounter,
   decreaseCount,
@@ -32,6 +32,7 @@ interface IProps {
   increaseCount: (counterId: number) => void;
   removeCounter: (counterId: number) => void;
   counters: ICounter[];
+  loadingStatus: LoadingStatus;
 }
 
 const App = (props: IProps) => {
@@ -57,22 +58,36 @@ const App = (props: IProps) => {
     );
   };
 
-  return (
-    <View style={styles.container}>
-      <Button
-        onPress={props.addCounter}
-        title={'Add Counter'}
-        color={styles.button.color}
-        accessibilityLabel={'Add Counter'}
-      />
-      <View style={styles.separator} />
-      <FlatList
-        data={props.counters}
-        renderItem={renderCounter}
-        keyExtractor={getKey}
-      />
-    </View>
-  );
+  if (props.loadingStatus === LoadingStatus.Loading) {
+    return (
+      <View style={styles.container}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  } else if (props.loadingStatus === LoadingStatus.Success) {
+    return (
+      <View style={styles.container}>
+        <Button
+          onPress={props.addCounter}
+          title={'Add Counter'}
+          color={styles.button.color}
+          accessibilityLabel={'Add Counter'}
+        />
+        <View style={styles.separator} />
+        <FlatList
+          data={props.counters}
+          renderItem={renderCounter}
+          keyExtractor={getKey}
+        />
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text>{props.loadingStatus}</Text>
+      </View>
+    );
+  }
 };
 
 const mapDispatchToProps = (dispatch: any) => {
@@ -83,7 +98,7 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 const mapStateToProps = (state: IState) => {
-  return { counters: state.counters };
+  return { counters: state.counters, loadingStatus: state.loadingStatus };
 };
 
 export default connect(

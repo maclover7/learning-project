@@ -1,8 +1,9 @@
-import { ICounter, IState } from '../types';
+import { ICounter, LoadingStatus, IState } from '../types';
 import { ICounterAction, Actions } from '../actions';
 
 const initialState: IState = {
   counters: [{ count: 0 }, { count: 5 }],
+  loadingStatus: LoadingStatus.Loading,
 };
 
 export default function counterReducer(
