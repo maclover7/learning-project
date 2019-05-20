@@ -1,17 +1,22 @@
-import ICounter from '../types';
+import { ICounter, IState } from '../types';
 import { ICounterAction, Actions } from '../actions';
 
-const initialState = [{ count: 0 }, { count: 5 }];
+const initialState: IState = {
+  counters: [{ count: 0 }, { count: 5 }],
+};
 
 export default function counterReducer(
   state = initialState,
   action: ICounterAction,
 ) {
+  let counters;
+
   switch (action.type) {
     case Actions.AddCounter:
-      return [{ count: 0 }, ...state];
+      counters = [{ count: 0 }, ...state.counters];
+      return Object.assign({}, state, { counters });
     case Actions.DecreaseCount:
-      return state.map((counter: ICounter, index: number) => {
+      counters = state.counters.map((counter: ICounter, index: number) => {
         if (action.counterId === index) {
           return {
             count: counter.count - 1,
@@ -20,8 +25,10 @@ export default function counterReducer(
 
         return counter;
       });
+
+      return Object.assign({}, state, { counters });
     case Actions.IncreaseCount:
-      return state.map((counter: ICounter, index: number) => {
+      counters = state.counters.map((counter: ICounter, index: number) => {
         if (action.counterId === index) {
           return {
             count: counter.count + 1,
@@ -30,10 +37,14 @@ export default function counterReducer(
 
         return counter;
       });
+
+      return Object.assign({}, state, { counters });
     case Actions.RemoveCounter:
-      return state.filter((counter: ICounter, index: number) => {
+      counters = state.counters.filter((counter: ICounter, index: number) => {
         return index !== action.counterId;
       });
+
+      return Object.assign({}, state, { counters });
     default:
       return state;
   }

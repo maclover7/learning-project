@@ -1,3 +1,7 @@
-export default interface ICounter {
+export interface ICounter {
   count: number;
+}
+
+export interface IState {
+  counters: ICounter[];
 }
