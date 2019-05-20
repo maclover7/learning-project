@@ -9,12 +9,12 @@ import {
 import { ICounter } from './types';
 
 export function* onGetCounters(action: ICounterAction) {
-  const rawCountersResponse = yield call(fetchCounters);
-  console.log(rawCountersResponse);
-  if (rawCountersResponse.status === 200) {
-    const parsedCounters: ICounter[] = Object.values(rawCountersResponse.data);
+  try {
+    const rawCountersResponse = yield call(fetchCounters);
+    const rawCountersResponseDecoded = yield call(() => rawCountersResponse.json());
+    const parsedCounters: ICounter[] = Object.values(rawCountersResponseDecoded);
     yield put(getCountersSuccess(parsedCounters));
-  } else {
+  } catch (e) {
     yield put(getCountersFailure());
   }
 }

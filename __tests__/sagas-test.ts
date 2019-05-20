@@ -1,36 +1,18 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { onGetCounters, counterSaga } from '../src/sagas';
-import {
-  Actions,
-  getCounters,
-  getCountersFailure,
-  getCountersSuccess,
-} from '../src/actions';
-import fetchCounters from '../src/api';
+import { runSaga } from 'redux-saga';
+import { onGetCounters } from '../src/sagas';
+import { getCounters, getCountersSuccess } from '../src/actions';
+import fetchMock from 'fetch-mock';
 
-it('will fetch counters on action', () => {
-  const generator = counterSaga();
-  put(getCounters());
-  const actualNext = generator.next().value;
+it('will fetch counters - success', async () => {
+  const expectedCounters = [{ count: 6 }, { count: 4 }, { count: 2 }, { count: 1 }];
+  fetchMock.mock('https://api.myjson.com/bins/ywmke', expectedCounters);
 
-  expect(actualNext).toEqual(takeLatest(Actions.GetCounters, onGetCounters));
-  expect(generator.next().done).toEqual(true);
-});
+  const dispatched: any[] = [];
+  const result = await runSaga({
+    dispatch: (action) => { dispatched.push(action) },
+  }, onGetCounters, getCounters()).toPromise();
 
-it('will fetch counters - failure', () => {
-  const generator = onGetCounters(getCounters());
+  expect(dispatched).toEqual([ getCountersSuccess(expectedCounters) ]);
 
-  expect(generator.next().value).toEqual(call(fetchCounters));
-  // TODO: Fix this test
-  //expect(generator.next().value).toEqual(put(getCountersFailure()));
-  //expect(generator.next().done).toEqual(true);
-});
-
-it('will fetch counters - success', () => {
-  const generator = onGetCounters(getCounters());
-
-  expect(generator.next().value).toEqual(call(fetchCounters));
-  // TODO: Fix this test
-  //expect(generator.next().value).toEqual(put(getCountersFailure()));
-  //expect(generator.next().done).toEqual(true);
+  fetchMock.restore();
 });
