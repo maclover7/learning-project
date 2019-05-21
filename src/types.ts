@@ -2,6 +2,14 @@ export interface ICounter {
   count: number;
 }
 
+export interface ICounterState {
+  counters: ICounter[];
+}
+
+export interface IDownloadState {
+  loadingStatus: LoadingStatus;
+}
+
 export enum LoadingStatus {
   Unknown = 'Unknown',
   Loading = 'Loading',
@@ -10,6 +18,6 @@ export enum LoadingStatus {
 }
 
 export interface IState {
-  counters: ICounter[];
-  loadingStatus: LoadingStatus;
+  counters: ICounterState;
+  loadingStatus: IDownloadState;
 }

@@ -3,7 +3,7 @@ import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Counter from '../components/Counter';
-import { ICounter, LoadingStatus, IState } from '../types';
+import { ICounter, IState, LoadingStatus } from '../types';
 import {
   addCounter,
   decreaseCount,
@@ -115,7 +115,10 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 const mapStateToProps = (state: IState) => {
-  return { counters: state.counters, loadingStatus: state.loadingStatus };
+  return {
+    counters: state.counters.counters,
+    loadingStatus: state.loadingStatus.loadingStatus,
+  };
 };
 
 export default connect(
