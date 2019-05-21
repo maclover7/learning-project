@@ -7,9 +7,9 @@ import { ICounter, LoadingStatus, IState } from '../types';
 import {
   addCounter,
   decreaseCount,
+  downloadCounters,
   increaseCount,
   removeCounter,
-  getCounters,
 } from '../actions';
 
 const styles = StyleSheet.create({
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 interface IProps {
   addCounter: () => void;
   decreaseCount: (counterId: number) => void;
-  getCounters: () => void;
+  downloadCounters: () => void;
   increaseCount: (counterId: number) => void;
   removeCounter: (counterId: number) => void;
   counters: ICounter[];
@@ -86,7 +86,7 @@ const App = (props: IProps) => {
       text = 'Loading...';
     } else if (props.loadingStatus === LoadingStatus.Unknown) {
       text = 'Loading...';
-      props.getCounters();
+      props.downloadCounters();
     }
 
     return (
@@ -99,7 +99,7 @@ const App = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
-    { addCounter, decreaseCount, getCounters, increaseCount, removeCounter },
+    { addCounter, decreaseCount, downloadCounters, increaseCount, removeCounter },
     dispatch,
   );
 };

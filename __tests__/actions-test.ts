@@ -5,9 +5,9 @@ import {
   decreaseCount,
   increaseCount,
   removeCounter,
-  getCounters,
-  getCountersSuccess,
-  getCountersFailure,
+  downloadCounters,
+  downloadCountersSuccess,
+  downloadCountersFailure,
 } from '../src/actions';
 import { ICounter } from '../src/types';
 
@@ -46,28 +46,28 @@ it('removes counter', () => {
   });
 });
 
-it('gets counters', () => {
-  const generatedAction = getCounters();
+it('downloads counters', () => {
+  const generatedAction = downloadCounters();
 
   expect(generatedAction).toEqual({
-    type: Actions.GetCounters,
+    type: Actions.DownloadCounters,
   });
 });
 
-it('get counters - success', () => {
+it('downloads counters - success', () => {
   const counters: ICounter[] = [{ count: 1 }];
-  const generatedAction = getCountersSuccess(counters);
+  const generatedAction = downloadCountersSuccess(counters);
 
   expect(generatedAction).toEqual({
-    type: Actions.GetCountersSuccess,
+    type: Actions.DownloadCountersSuccess,
     counters,
   });
 });
 
-it('gets counters - failure', () => {
-  const generatedAction = getCountersFailure();
+it('downloads counters - failure', () => {
+  const generatedAction = downloadCountersFailure();
 
   expect(generatedAction).toEqual({
-    type: Actions.GetCountersFailure,
+    type: Actions.DownloadCountersFailure,
   });
 });

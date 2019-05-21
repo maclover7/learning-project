@@ -1,6 +1,6 @@
 import { runSaga } from 'redux-saga';
-import { onGetCounters } from '../src/sagas';
-import { getCounters, getCountersSuccess } from '../src/actions';
+import { onDownloadCounters } from '../src/sagas';
+import { downloadCounters, downloadCountersSuccess } from '../src/actions';
 import fetchMock from 'fetch-mock';
 
 it('will fetch counters - success', async () => {
@@ -19,11 +19,11 @@ it('will fetch counters - success', async () => {
         dispatched.push(action);
       },
     },
-    onGetCounters,
-    getCounters(),
+    onDownloadCounters,
+    downloadCounters(),
   ).toPromise();
 
-  expect(dispatched).toEqual([getCountersSuccess(expectedCounters)]);
+  expect(dispatched).toEqual([downloadCountersSuccess(expectedCounters)]);
 
   fetchMock.restore();
 });

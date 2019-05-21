@@ -3,22 +3,22 @@ import fetchCounters from '../api';
 import {
   ICounterAction,
   Actions,
-  getCountersFailure,
-  getCountersSuccess
+  downloadCountersFailure,
+  downloadCountersSuccess
 } from '../actions';
 import { ICounter } from '../types';
 
-export function* onGetCounters(action: ICounterAction) {
+export function* onDownloadCounters(action: ICounterAction) {
   try {
     const rawCountersResponse = yield call(fetchCounters);
     const rawCountersResponseDecoded = yield call(() => rawCountersResponse.json());
     const parsedCounters: ICounter[] = Object.values(rawCountersResponseDecoded);
-    yield put(getCountersSuccess(parsedCounters));
+    yield put(downloadCountersSuccess(parsedCounters));
   } catch (e) {
-    yield put(getCountersFailure());
+    yield put(downloadCountersFailure());
   }
 }
 
 export function* counterSaga() {
-  yield takeLatest(Actions.GetCounters, onGetCounters);
+  yield takeLatest(Actions.DownloadCounters, onDownloadCounters);
 }

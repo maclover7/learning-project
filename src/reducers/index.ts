@@ -44,14 +44,14 @@ const counterReducer = (state = initialState, action: ICounterAction) => {
       });
 
       return Object.assign({}, state, { counters });
-    case Actions.GetCounters:
+    case Actions.DownloadCounters:
       return Object.assign({}, state, { loadingStatus: LoadingStatus.Loading });
-    case Actions.GetCountersSuccess:
+    case Actions.DownloadCountersSuccess:
       return Object.assign({}, state, {
         loadingStatus: LoadingStatus.Success,
         counters: action.counters,
       });
-    case Actions.GetCountersFailure:
+    case Actions.DownloadCountersFailure:
       return Object.assign({}, state, { loadingStatus: LoadingStatus.Failure });
     default:
       return state;

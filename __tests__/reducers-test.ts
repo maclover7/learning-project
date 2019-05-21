@@ -2,9 +2,9 @@ import counterReducer from '../src/reducers';
 import {
   addCounter,
   decreaseCount,
-  getCounters,
-  getCountersFailure,
-  getCountersSuccess,
+  downloadCounters,
+  downloadCountersFailure,
+  downloadCountersSuccess,
   increaseCount,
   removeCounter,
 } from '../src/actions';
@@ -62,20 +62,20 @@ it('removes counter', () => {
   });
 });
 
-it('gets counters', () => {
+it('downloads counters', () => {
   const initialState = {
     counters: [],
     loadingStatus: LoadingStatus.Unknown,
   };
 
-  const modifiedState = counterReducer(initialState, getCounters());
+  const modifiedState = counterReducer(initialState, downloadCounters());
   expect(modifiedState).toEqual({
     counters: [],
     loadingStatus: LoadingStatus.Loading,
   });
 });
 
-it('gets counters - success', () => {
+it('downloads counters - success', () => {
   const initialState = {
     counters: [],
     loadingStatus: LoadingStatus.Loading,
@@ -83,7 +83,7 @@ it('gets counters - success', () => {
 
   const modifiedState = counterReducer(
     initialState,
-    getCountersSuccess([{ count: 1 }]),
+    downloadCountersSuccess([{ count: 1 }]),
   );
   expect(modifiedState).toEqual({
     counters: [{ count: 1 }],
@@ -91,13 +91,13 @@ it('gets counters - success', () => {
   });
 });
 
-it('gets counters - failure', () => {
+it('downloads counters - failure', () => {
   const initialState = {
     counters: [],
     loadingStatus: LoadingStatus.Loading,
   };
 
-  const modifiedState = counterReducer(initialState, getCountersFailure());
+  const modifiedState = counterReducer(initialState, downloadCountersFailure());
   expect(modifiedState).toEqual({
     counters: [],
     loadingStatus: LoadingStatus.Failure,

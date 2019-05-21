@@ -5,9 +5,9 @@ export enum Actions {
   DecreaseCount = 'DECREASE_COUNT',
   IncreaseCount = 'INCREASE_COUNT',
   RemoveCounter = 'REMOVE_COUNTER',
-  GetCounters = 'GET_COUNTERS',
-  GetCountersSuccess = 'GET_COUNTERS_SUCCESS',
-  GetCountersFailure = 'GET_COUNTERS_FAILURE',
+  DownloadCounters = 'DOWNLOAD_COUNTERS',
+  DownloadCountersSuccess = 'DOWNLOAD_COUNTERS_SUCCESS',
+  DownloadCountersFailure = 'DOWNLOAD_COUNTERS_FAILURE',
 }
 
 export const addCounter = () => {
@@ -37,21 +37,21 @@ export const removeCounter = (counterId: number) => {
   };
 };
 
-export const getCounters = () => {
+export const downloadCounters = () => {
   return {
-    type: Actions.GetCounters,
+    type: Actions.DownloadCounters,
   };
 };
 
-export const getCountersFailure = () => {
+export const downloadCountersFailure = () => {
   return {
-    type: Actions.GetCountersFailure,
+    type: Actions.DownloadCountersFailure,
   };
 };
 
-export const getCountersSuccess = (counters: ICounter[]) => {
+export const downloadCountersSuccess = (counters: ICounter[]) => {
   return {
-    type: Actions.GetCountersSuccess,
+    type: Actions.DownloadCountersSuccess,
     counters,
   };
 };
