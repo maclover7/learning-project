@@ -1,12 +1,13 @@
 import React from 'react';
-import { Button, FlatList, StyleSheet, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Counter from '../components/Counter';
-import ICounter from '../types';
+import { ICounter, IState, LoadingStatus } from '../types';
 import {
   addCounter,
   decreaseCount,
+  downloadCounters,
   increaseCount,
   removeCounter,
 } from '../actions';
@@ -24,14 +25,20 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 1,
   },
+  statusText: {
+    fontSize: 20,
+    textAlign: 'center',
+  },
 });
 
 interface IProps {
   addCounter: () => void;
   decreaseCount: (counterId: number) => void;
+  downloadCounters: () => void;
   increaseCount: (counterId: number) => void;
   removeCounter: (counterId: number) => void;
   counters: ICounter[];
+  loadingStatus: LoadingStatus;
 }
 
 const App = (props: IProps) => {
@@ -57,33 +64,61 @@ const App = (props: IProps) => {
     );
   };
 
-  return (
-    <View style={styles.container}>
-      <Button
-        onPress={props.addCounter}
-        title={'Add Counter'}
-        color={styles.button.color}
-        accessibilityLabel={'Add Counter'}
-      />
-      <View style={styles.separator} />
-      <FlatList
-        data={props.counters}
-        renderItem={renderCounter}
-        keyExtractor={getKey}
-      />
-    </View>
-  );
+  if (props.loadingStatus === LoadingStatus.Success) {
+    return (
+      <View style={styles.container}>
+        <Button
+          onPress={props.addCounter}
+          title={'Add Counter'}
+          color={styles.button.color}
+          accessibilityLabel={'Add Counter'}
+        />
+        <View style={styles.separator} />
+        <FlatList
+          data={props.counters}
+          renderItem={renderCounter}
+          keyExtractor={getKey}
+        />
+      </View>
+    );
+  } else {
+    let text;
+
+    if (props.loadingStatus === LoadingStatus.Failure) {
+      text = 'Unable to fetch counters';
+    } else if (props.loadingStatus === LoadingStatus.Loading) {
+      text = 'Loading...';
+    } else if (props.loadingStatus === LoadingStatus.Unknown) {
+      text = 'Loading...';
+      props.downloadCounters();
+    }
+
+    return (
+      <View style={styles.container}>
+        <Text style={styles.statusText}>{text}</Text>
+      </View>
+    );
+  }
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
-    { addCounter, decreaseCount, increaseCount, removeCounter },
+    {
+      addCounter,
+      decreaseCount,
+      downloadCounters,
+      increaseCount,
+      removeCounter,
+    },
     dispatch,
   );
 };
 
-const mapStateToProps = (state: ICounter[]) => {
-  return { counters: state };
+const mapStateToProps = (state: IState) => {
+  return {
+    counters: state.counters.counters,
+    loadingStatus: state.loadingStatus.loadingStatus,
+  };
 };
 
 export default connect(

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import counterReducer from './reducers';
+import createStore from './store';
 import App from './containers/App';
 
-const store = createStore(counterReducer);
+const store = createStore();
 
 interface IProps {}
 interface IState {}

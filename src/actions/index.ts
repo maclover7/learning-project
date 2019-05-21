@@ -1,8 +1,13 @@
+import { ICounter } from '../types';
+
 export enum Actions {
   AddCounter = 'ADD_COUNTER',
   DecreaseCount = 'DECREASE_COUNT',
   IncreaseCount = 'INCREASE_COUNT',
   RemoveCounter = 'REMOVE_COUNTER',
+  DownloadCounters = 'DOWNLOAD_COUNTERS',
+  DownloadCountersSuccess = 'DOWNLOAD_COUNTERS_SUCCESS',
+  DownloadCountersFailure = 'DOWNLOAD_COUNTERS_FAILURE',
 }
 
 export const addCounter = () => {
@@ -32,7 +37,27 @@ export const removeCounter = (counterId: number) => {
   };
 };
 
+export const downloadCounters = () => {
+  return {
+    type: Actions.DownloadCounters,
+  };
+};
+
+export const downloadCountersFailure = () => {
+  return {
+    type: Actions.DownloadCountersFailure,
+  };
+};
+
+export const downloadCountersSuccess = (counters: ICounter[]) => {
+  return {
+    type: Actions.DownloadCountersSuccess,
+    counters,
+  };
+};
+
 export interface ICounterAction {
   type: Actions;
   counterId?: number;
+  counters?: ICounter[];
 }

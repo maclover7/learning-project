@@ -5,7 +5,11 @@ import {
   decreaseCount,
   increaseCount,
   removeCounter,
+  downloadCounters,
+  downloadCountersSuccess,
+  downloadCountersFailure,
 } from '../src/actions';
+import { ICounter } from '../src/types';
 
 it('adds counter', () => {
   const generatedAction = addCounter();
@@ -39,5 +43,31 @@ it('removes counter', () => {
   expect(generatedAction).toEqual({
     type: Actions.RemoveCounter,
     counterId: 0,
+  });
+});
+
+it('downloads counters', () => {
+  const generatedAction = downloadCounters();
+
+  expect(generatedAction).toEqual({
+    type: Actions.DownloadCounters,
+  });
+});
+
+it('downloads counters - success', () => {
+  const counters: ICounter[] = [{ count: 1 }];
+  const generatedAction = downloadCountersSuccess(counters);
+
+  expect(generatedAction).toEqual({
+    type: Actions.DownloadCountersSuccess,
+    counters,
+  });
+});
+
+it('downloads counters - failure', () => {
+  const generatedAction = downloadCountersFailure();
+
+  expect(generatedAction).toEqual({
+    type: Actions.DownloadCountersFailure,
   });
 });
