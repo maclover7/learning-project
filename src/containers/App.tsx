@@ -99,7 +99,13 @@ const App = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
-    { addCounter, decreaseCount, downloadCounters, increaseCount, removeCounter },
+    {
+      addCounter,
+      decreaseCount,
+      downloadCounters,
+      increaseCount,
+      removeCounter,
+    },
     dispatch,
   );
 };
