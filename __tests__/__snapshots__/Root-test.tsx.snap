@@ -10,7 +10,14 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "textAlign": "center",
+      }
+    }
+  >
     Loading...
   </Text>
 </View>

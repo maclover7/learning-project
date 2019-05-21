@@ -25,6 +25,10 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 1,
   },
+  statusText: {
+    fontSize: 20,
+    textAlign: 'center',
+  },
 });
 
 interface IProps {
@@ -91,7 +95,7 @@ const App = (props: IProps) => {
 
     return (
       <View style={styles.container}>
-        <Text>{text}</Text>
+        <Text style={styles.statusText}>{text}</Text>
       </View>
     );
   }
