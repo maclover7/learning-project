@@ -1,12 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import fetchCounters from './api';
+import fetchCounters from '../api';
 import {
   ICounterAction,
   Actions,
   getCountersFailure,
   getCountersSuccess
-} from './actions';
-import { ICounter } from './types';
+} from '../actions';
+import { ICounter } from '../types';
 
 export function* onGetCounters(action: ICounterAction) {
   try {
